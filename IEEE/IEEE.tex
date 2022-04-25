@@ -1,0 +1,121 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Edge-/Fog-Computing\\
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Stevan Nedic}
+\IEEEauthorblockA{\textit{Fachbereich Informatik} \\
+\textit{Paris Lodron Universität Salzburg}\\
+Salzburg, Austria \\
+stevan.nedic@stud.sbg.ac.at}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Mathias Bögl}
+\IEEEauthorblockA{\textit{Fachbereich Informatik} \\
+\textit{Paris Lodron Universität Salzburg}\\
+Salzburg, Austria \\
+mathias.bögl@stud.sbg.ac.at}
+}
+
+\maketitle
+
+\begin{abstract}
+Motiviert durch die umfangreichen Forschungsanstrengungen im Bereich Edge Computing und IoT-Anwendungen präsentieren wir in diesem Artikel einen Überblick über Edge- und Fog-Computing-Forschung im IoT. Wir zeigen die Rolle von Cloud, Fog und Edge Computing im IoT-Umfeld, anschließend behandeln wir einige IoT-Anwendungsfälle mit Edge- und Fog-Computing, die Aufgabenplanung im Edge-Computing, die Verschmelzung von softwaredefinierten Netzwerken (SDN) und Netzwerkfunktionsvirtualisierung (NFV) mit Edge-Computing, Sicherheits- und Datenschutzbemühungen.
+\end{abstract}
+
+\begin{IEEEkeywords}
+IoT, Fog , Edge, Cloud, 
+\end{IEEEkeywords}
+
+\section{Introduction}
+Cloud Computing hat sich mittlerweile zu einer effektiven Lösung bei der "On demand" Verarbeitung von großen Datenmengen entwickelt. Dadurch hat sich die Technologie schon in vielen Teilen der Gesellschaft etabliert, unter anderem im Bereich der Finanzen, des Gesundheitswesens oder der Industrie. Immer mehr Systeme sind mittlerweile abhängig vom Cloud Computing, benötigen jedoch bei weitem nicht die Komplexität welche damit einhergeht.
+
+\subsection{Cloud}
+Die Cloud ist eine On-Demand Bereitstellung von Computer Ressourcen, wie Speicher, Server, Netzwerk, Datenbanken, Analyse, etc. Disese werden von Cloud Anbietern angeboten und vertrieben um selber keine Physischen Server betreiben zu müssen. Im Bedarfsall hat man eine sofortige Skalierbarkeit, Kosteneffizienz durch nicht im Voraus benötigte Anschaffung von Geräten und Software sowie eine gewisse Sicherheit durch die Zentralisierung der Rechenzentren.
+
+\subsection{IoT}
+Das Internet der Dinge (IoT) ermöglicht die Kommunikation zwischen Geräten und Dingen die Daten über ein Netzwerk senden und empfangen, ohne dass eine Interaktion mit einem Menschen erforderlich ist. Das Hauptmerkmal von IoT ist die enorme Datenmenge, die von den Geräten der Endbenutzer erzeugt wird und in kurzer Zeit in der Cloud verarbeitet werden muss.
+
+
+\subsection{Probleme}
+Das aktuelle Cloud-Computing Konzept ist nicht effizient genug um sehr große Datenmengen in sehr kurzer Zeit zu analysieren und den Anforderungen der Nutzer gerecht zu werden. Die Verarbeitung der enormen Datenmengen durch die Cloud nimmt viel Zeit in Anspruch und wirkt sich auf die IoT-Anwendungen sowie die Gesamtleistung des Netzwerks negativ aus. Um solche Herausforderungen zu bewältigen, wurde eine neue Architektur namens Edge Computing vorgeschlagen. 
+
+\section{Fog/Edge Computing}
+
+
+Fog-/Edge-Computing ermöglicht den Datenprozess von der Cloud zum Netzwerkrand zu dezentralisieren, um jene Probleme zu lösen, welche durch die Verwendung des Cloud-Computing Ansatzes aufgetreten sind. Darüber hinaus ermöglicht Edge-Computing IoT-Anwendungen, die eine kurze Reaktionszeit erfordern und folglich den Energieverbrauch, die Ressourcennutzung usw. verbessern.
+
+\subsection{Was ist Fog/Edge}
+Mit Fog- und Edge-Computing können wir das Problem des stark boomenden IoTs und der dadurch wachsenden Datenströme besser in den Griff bekommen. 
+Die begriffe Fog- und Edge-Computing gehen meist Hand in Hand, da es bei beiden Begriffen darum geht, dass man die Rechenkraft und Intelligenz näher zur Datenquelle bringt. Statt wie bei der Cloud, wo alles sehr zentralisiert abläuft und alle Daten an einem Fleck landen, werden beim Fog- und Edge-Computing dezentrale Systeme verwendet. Edge und Fog unterscheiden sich bei genauerem Hinblick dadurch, wo letztendlich diese Rechenleistungen liegen und die Prozesse stattfinden. 
+
+\subsubsection{Fog}
+Fog-Computing bezieht sich auf die cloud-ähnlichen Eigenschaften, jedoch näher zum Boden, in diesem Fall zum Edge bzw. IoT Devices. 
+Statt alles über die Cloud laufen zu lassen, werden durch spezielle Protokolle in sogenannten Fog-Nodes entschieden, ob die Daten lokal verarbeiten werden sollen und ob Teile zur weiteren Analyse oder Verarbeitung in die Cloud geschickt werden müssen. Metaphorisch lässt sich alles wie ein Netzwerk von Mini Clouds darstellen, wo die entstehenden Daten einen Zwischenstopp machen. Im Gegensatz zu Clouds deren Rechenzentren meist mehrere Kilometer entfernt sind, können Fog-Nodes durch ihre geographische Nähe um einiges schneller arbeiten und reagieren.
+
+\subsubsection{Edge}
+Beim Edge Computing redet man davon, dass die Rechenleistung und Power gleich beim Edge anwendet wird, also beim Endgerät selbst. Hier werden die "smarten" Geräte meist mit einem eignen Micro-Controller ausgestattet, welcher ihnen die grundlegende Datenverarbeitung und Kommunikation mit anderen Geräten und Sensoren ermöglicht. Dadurch lässt sich das Latenzproblem sehr leicht lösen, da die erwarteten Ergebnisse sofort ankommen bzw. die Befehle mit minimaler Verzögerung ausgeführt werden können.
+\subsection{Vor-/Nachteile}
+\subsubsection{Vorteil}
+\begin{enumerate}
+	\item Bandbreitenprobleme sind im Vergleich zu Clouds kein Problem, da der Großteil der Daten von IoT Geräten nicht alle in Richtung Cloud geschickt werden müssen, sondern bereits vor Ort und Stelle analysiert und verarbeitet werden. 
+	\item Eine verbesserte User-Experience, da durch fast sofortige Antworten und keine Downtimes nicht gewartet werden muss.
+	\item Bessere Energieeffizienz, da auf den Nodes effiziente Protokole laufen, unter anderem Bluetooth Zigbee oder Z-Wave. Mit "DotDot" gibt es außerdem eine von der Zugbee Alliance entwickelt universelle Sprache der IoT.
+\end{enumerate}
+\subsubsection{Nachteil}
+\begin{enumerate}
+	\item Ein viel komplizierteres System, da durch den Fog eine weitere Ebene mit sehr vielen Nodes und den Micro-Controllern Edge hinzukommt.
+	\item Größere Kostenaufwand für Unternehmen, da neue bzw. mehr Edge Geräte zur Verfügung gestellt werden müssen. Zusätzlich dazu kommen auch noch weitere Routers, Hubs und Gateways. 
+	\item Fog ist im Vergleich zur Cloud sehr schwer skalierbar. Während man bei einem Cloud Anbieter innerhalb weniger Minuten die Datenspeicherkapazität, Prozess-Power und Netzwerkbandbreite erhöhen kann, benötigt man beim Edge/Fog Wochen oder potenziell sogar Monate. 
+\end{enumerate}
+
+\section{Implementierung und Herausforderung}
+
+\subsection{Sicherheit und Datenschutz}
+Die zusätzlichen Schichten die durch Fog/Edge enstehen bieten für Hacker neue Angriffsflächen um auf Daten zu gelangen. Durch "Denial of Service" Attacken lassen sich die Fog-Nodes lahmlegen und nicht mehr erreichbar machen. Datenschutz ist auch eine schwierige Herausforderung, da durch die Natur des Fog-Computings alle User Daten gesammelt, verarbeitet und verteilt werden. Sicherheit und Datenschutz sind auch im Cloud-Computing große Probleme und werden dort effizient behandelt, die meiste Technologie ist aber mit dem Fog-Computing aufgrund der zahlreichen und verschiedenen IoT Geräten nicht kompatibel.
+
+\subsection{Netzwerk Management}
+Um Sicherheit und Datenschutz gewährleisten zu können, ist ein gutes Netzwerk Management essentiell. Durch die hohe Komplexität und Anforderungen benötigt man ein sehr gut organisiertes Netzwerk, welches durch die beiden folgenden Technologien realisierbar ist.
+\begin{enumerate}
+	\item Software Defined Networking (SDN) - Dabei wird die Entscheidung über das Ziel der Daten (control plane) von dem tatsächlichen Weiterleiten der Daten (data plane) getrennt. Die Control Plane wird virtualisiert und kann somit unabhängig von spezifischer Hardware laufen. Dadurch kann das gesamte Netzwerk zentral administriert werden und sowohl schnell als auch mit relativ wenig Aufwand an sich ändernde Anforderungen angepasst werden.
+	\item Network Functions Virtualization (NFV) - Ähnlich wie beim SDN wird bei NFV spezifische Hardware durch Virtualisierungen ersetzt. Firewalls, Load Balancers und andere traditionelle Netzwerkgeräte können alle zusammen auf der gleichen Server Hardware laufen, wodurch sich gleichzeitig bei geringeren Kosten eine bessere Skalierbarkeit und Flexibilität erreichen lässt. Werden neue Kapazitäten benötigt, können innerhalb von Sekunden neue Services mit der richtigen Konfiguration bereitgestellt werden.
+\end{enumerate}
+
+\subsection{Technologie}
+Durch der Notwendigkeit von Virtualisierung für SDN und NFV aber auch aufgrund der Heterogenität der Endgeräte, wodurch nicht jedes Device out-of-the-box als Edge-Gerät bzw. Fog-Node verwendet werden kann, werden zwei verschiedene Arten von Virtualisierung benötigt.
+\begin{enumerate}
+	\item OS-Level Virtualisierung - Hier werden jeder Instanz (Container) eigene Ressourcen (CPU, RAM, I/O, ...) zugeteilt, Funktionen des Betriebssystems wie Syscalls und ähnliche werden jedoch vom gleichen Kernel abgearbeitet. 
+	\item Volle Virtualisierung - Dabei bekommen alle Instanzen (Virtual Machines - VMs) analog zur OS-Level Virtualisierung eigene Ressourcen zugeteilt, Syscalls und ähnliches wird jedoch von jeder VM selbst verarbeitet, da jede einen eigenen Kernel emuliert.
+\end{enumerate}
+Beide Arten haben sowohl ihre Vor- und Nachteile als auch speziellen Anwendungsfälle. Container sind nützlich, da durch das Teilen des Kernels sehr wenig Overhead entsteht und ermöglichen im Bedarfsfall dadurch in sehr kurzer Zeit neue Container zu starten, jedoch birgt die Verwendung des gleichen Kernels gewisse Sicherheitsrisiken. Virtuelle Maschinen ermöglichen es im Gegenzug verschiedene Hardware und Betriebssystem auf dem gleichen physischen Server zu emulieren, durch den höheren Overhead benötigen sie jedoch länger zum starten und mehr Ressourcen.
+
+\section{Anwendungsgebiete}
+Fog-und Edge-Computing finden in vielen Gebieten Verwendung. Zum einen Augmented Reality, beispielsweise die "Google glasses", wo die geringe Latenzen und hohe Rechenleistungen von Fog Computing genutzt werden. Im Gesundheitswesen spielt es ebenso eine immer wichtiger werdende Rolle, durch Vernetzung von Sensoren die in einem lokalen Fog-Netzwerk verbunden sind. Die meiste Anwendung findet man jedoch im Automobil, dem sogenannten "Connected Vehicle".
+
+\subsection{"Autonomous Vehicle" und "Connected Vehicle" (CV)}
+"Autonomous Vehicle" sind voll mit Edge-Devices, welche alle miteinander kommunizieren und auf Echtzeit Basis Entscheidungen treffen, indem sie die gesammelten Daten untereinander teilen und auswerten. Durch Sensoren und Kameras werden Informationen aufgenommen wie unter anderem Passanten und andere Objekte in der Umgebung, die Straßenbeschaffenheit und Lichtlevel. Diese werden dann umgehend verarbeitet, damit die Steuerprogramme im Auto dementsprechend reagieren können. 
+Die geringe Latenz bei der Verarbeitung dieser Daten ist essentiell für solche Autos, denn ohne wäre es nicht möglich eine sichere Fahrt zu gewährleisten.
+
+Auf diese Eigenschaften kann man mit Hilfe von Fog-Computing weiter aufbauen. Mit Connected Vechicle oder auch V2X genannt, kann man mithilfe des Fogs dem autonomen Fahren näher kommen, indem man durch den Fog nicht nur alle Autos miteinander (Vehicle to Vehicle/V2V) sondern auch die Autos mit der Infrastruktur (V2I) und den Fußgängern (V2P) kommunizieren lässt.
+Durch verteilte Fog Nodes am Straßenrand und in der Stadt, erreicht man durch die geringe Latenz weniger Verkehrsunfälle und eine gesteigerte Effizienz des Straßenverkehrs.
+Als Beispiele gibt es das smarte Traffic-Light-Systeme, welche mit Hilfe von Sensoren Fußgänger und Radfahrer wahrnimmt, dann die Distanz und Geschwindigkeit eines sich nähernden Autos berechnet und mit diesen Informationen dann entscheidet, wie die Ampel am besten geschaltet wird oder ob dem Auto über die mögliche Gefahr informiert werden muss.
+Diese gesammelten Daten von allen Autos und System lassen sich dann in der Cloud für Langzeitanalysen sammeln, wodurch Maßnahmen gegen Unfallhotspots oder vermehrte Staubildungen entwickelt werden können.
+
+
+\nocite{*}
+\bibliographystyle{acm}
+\bibliography{Referenz}
+\listoffigures
+
+\end{document}
