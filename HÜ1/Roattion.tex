@@ -1,0 +1,26 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{cellspace}
+\title{HÜ1: Rotieren und Skalieren}
+
+\begin{document}
+	\maketitle
+	\begin{center}
+			\begin{tabular}{|c| c |c|c|}
+			\hline
+			Normal & Rotiert & Skaliert & Beides\\
+			\hline
+			\raisebox{-.1\totalheight}{\includegraphics[scale=0.3]{wut}} &
+			\includegraphics[angle=90, origin = c, scale =0.3]{wut} &
+			\includegraphics[origin = c,scale=0.05]{wut} &
+			\includegraphics[angle = 180, origin = c, scale=0.15]{wut}\\
+			\hline
+			\raisebox{-.2\totalheight}{\includegraphics[scale=0.1]{wat}} &
+			\raisebox{-.15\totalheight}{\includegraphics[angle=270, origin=c, scale =0.1]{wat}} &
+			\includegraphics[scale=0.05]{wat}&
+			\includegraphics[angle=70, scale = 0.05]{wat} \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{document}

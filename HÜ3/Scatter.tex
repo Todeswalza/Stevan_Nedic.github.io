@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{gnuplottex}
+\usepackage{fullpage}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+
+
+
+\pgfplotsset{every axis/.append style={
+                        label style={font=\LARGE}}}
+                        
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    enlargelimits=true,
+    xlabel={Jahr},
+    ylabel={Studenten},
+    ymajorgrids=true,
+    grid style=dashed,
+    legend style={at={(1,-0.1)}, anchor=north.east, legend columns=-1, font=\fontsize{2}{2}\selectfont},
+    ]
+
+\addplot+[  only marks,
+            scatter,
+            mark=+,
+            mark size=5pt]
+            table{./Data/Bachelor.txt};\label{Bachelor}
+\addplot+[  only marks,
+            scatter,
+            mark=+,
+            mark size=5pt] table{./Data/Master.txt};\label{Master}
+\addplot+[  only marks,
+            scatter,
+            mark=+,
+            mark size=5pt] table{./Data/Lehramt.txt};\label{Lehramt}
+            
+\legend{Bachelor,Master,Lehramt}
+\end{axis}
+\end{tikzpicture}
+
+
+\end{document}

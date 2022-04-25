@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{gnuplottex}
+\usepackage{fullpage}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+
+
+
+\pgfplotsset{every axis/.append style={
+                        label style={font=\Huge}}}
+                        
+                        
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}
+[
+legend style={anchor=north.west, legend columns=-1, font=\fontsize{20}{10}\selectfont},
+title=3D Graph,
+xlabel={Jahr},
+ylabel={Studenten},
+zlabel={Abgeschlossen}
+]
+
+\addplot3[surf, domain=2017:2021, domain y =0:700] file {Bachelor3.txt};
+\addplot3[surf] file {Master3.txt};
+\addplot3[surf] file {Lehramt3.txt};
+\legend{Bachelor,Master,Lehramt}
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
